@@ -33,7 +33,9 @@ const userSignInController = async (req, res) => {
             const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: process.env.JWT_EXPIRE });
 
             const tokenOption = {
-                // httpOnly: true,
+                httpOnly: true,
+                secure: true,
+                sameSite: 'none',
                 maxAge: 10 * 24 * 60 * 60 * 1000,
             };
 
