@@ -7,7 +7,7 @@ async function authToken(req,res,next){
         // req.query.token
 
         console.log("req.query.token =>",token)
-        if(!token){
+        if(token === 'null' || !token){
             return res.status(200).json({
                 message : "Please Login...!",
                 error : true,
